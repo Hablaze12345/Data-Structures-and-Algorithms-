@@ -31,7 +31,7 @@ int main()
 	int n= sizeof(A)/sizeof(A[0]) ;
 	Sorting(A,n-1) ;
 	for(int i=0;i<n;i++) {
-		printf("%d",A[i]) ;
+		printf("%d ",A[i]) ;
 	}
 	return 0;
 }
