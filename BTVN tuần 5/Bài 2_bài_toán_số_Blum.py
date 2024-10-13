@@ -4,12 +4,14 @@ def is_4k3_prime(n):
     return n % 4==3
 #Sàng Eratosthenes để tìm các số nguyên tố nhỏ hơn n
 def sieve_eratosthenes(limit):
-    sieve= [True]*(limit+1)
-    sieve[0]=sieve[1]= False
-    for i in range(2, int (math.sqrt(limit))+1):
-        if sieve[i] :
-            for j in range(i*i,limit +1,i):
+    #Bước 1 : Khởi tạo mảng boolean để đánh dấu số nào là số nguyên tố
+    sieve= [True]*(limit+1) #Tất cả ban đầu là True
+    sieve[0]=sieve[1]= False #Đặt 0 và 1 là False vì không phải số nguyên tố
+    for i in range(2, int (math.sqrt(limit))+1): #Duyệt từ 2 đến sqrt(limit)
+        if sieve[i] : #Nếu i là số nguyên tố
+            for j in range(i*i,limit +1,i): #Đánh dấu tất cả bội số của i là False, bắt đầu từ i*i
                 sieve[j]=False
+    #Bước 3 : Lọc ra các số nguyên tố dạng 4k+3
     return [x for x in range(limit + 1) if sieve[x] and is_4k3_prime(x)]
 
 #Tạo danh sách số Blum nhỏ hơn N
