@@ -1,0 +1,20 @@
+Sàng Eratosthenes :
+Để tìm các số nguyên tố nhỏ hơn hoặc bằng số tự nhiên N bằng sàng Eratosthenes, ta làm như sau:
+Bước 1: Tạo 1 danh sách các số tự nhiên liên tiếp từ 2 đến n: (2, 3, 4,..., n).
+Bước 2: Giả sử tất cả các số trong danh sách đều là số nguyên tố. Trong đó, p = 2 là số nguyên tố đầu tiên.
+Bước 3: Tất cả các bội số của p: 2p, 3p, 4p,... sẽ bị đánh dấu vì không phải là số nguyên tố.
+Bước 4: Tìm các số còn lại trong danh sách mà chưa bị đánh dấu và phải lớn hơn p và nhỏ hơn hoặc bằng căn bậc 2 của n . Nếu không còn số nào, dừng tìm kiếm. Ngược lại, gán cho p giá trị bằng số nguyên tố tiếp theo và quay lại bước 3.
+Khi giải thuật kết thúc, tất các số chưa bị đánh dấu trong danh sách là các số nguyên tố cần tìm.
+
+Hàm sieve_eratosthenes(trong bài 2)
+Mục tiêu của hàm : Tạo ra danh sách các số nguyên tố có dạng 4k+3 nhỏ hơn hoặc bằng một giới hạn "limit"
+Thuật toán sàng Eratosthenes như trên :
+Gỉa sử chúng ta cần tìm các số nguyên tố nhỏ hơn hoặc bằng limit=N.Thuật toán thực hiện như sau :
+Bước 1 : Khởi tạo mảng :
++) Tạo một mảng boolean sieve có kích thước limit+1 và gán tất cả phần tử ban đầu là True. Mảng này dùng để đánh dấu số nào là nguyên tốc và số nào không phải nguyên tố.
++)Đặt sieve[0] và sieve[1] là False vì 0 và 1 không phải là số nguyên tố.
+Bước 2 : Bắt đầu sàng
++) Duyệt từ 2 đến sqrt(limit) (vì các hợp số lớn hơn sqrt(n) đều đã có ước nhỏ hơn hoặc bằng sqrt(n) ).
++) Với mỗi số i còn được đánh dấu là True trong mảng, đánh dấu tất cả bội số của nó là False.
+Bước 3 : Lọc số nguyên tố dạng 4k+3 :
++) Khi sàng xong, duyệt qua mảng và chọn những số vẫn có giá trị True và đồng thời thỏa mãn điều kiện p%4=3
