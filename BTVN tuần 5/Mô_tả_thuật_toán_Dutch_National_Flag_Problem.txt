@@ -1,0 +1,6 @@
+Mô tả thuật toán Dutch National Flag Problem
+Input :           2 0 2 1 1 0 2
+First Sort        0 2 2 1 1 0 2 (Sort từ đầu array xuống cuối array)
+                  0 0 2 1 1 2 2
+Second Sort       0 0 2 1 1 2 2 (Sort từ cuối array lên)
+Output            0 0 1 1 2 2 2
