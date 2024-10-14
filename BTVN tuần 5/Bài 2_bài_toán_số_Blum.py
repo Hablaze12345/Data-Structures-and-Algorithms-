@@ -7,7 +7,7 @@ def sieve_eratosthenes(limit):
     #Bước 1 : Khởi tạo mảng boolean để đánh dấu số nào là số nguyên tố
     sieve= [True]*(limit+1) #Tất cả ban đầu là True
     sieve[0]=sieve[1]= False #Đặt 0 và 1 là False vì không phải số nguyên tố
-    for i in range(2, int (math.sqrt(limit))+1): #Duyệt từ 2 đến sqrt(limit)
+    for i in range(2, int (math.sqrt(limit))+1): #Duyệt từ 2 đến sqrt(limit)+1
         if sieve[i] : #Nếu i là số nguyên tố
             for j in range(i*i,limit +1,i): #Đánh dấu tất cả bội số của i là False, bắt đầu từ i*i
                 sieve[j]=False
